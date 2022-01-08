@@ -5,7 +5,12 @@ function userRoutes(options) {
   const oidc = options.oidc;
 
   router.get("/", oidc.ensureAuthenticated(), function (req, res, next) {
-    res.send("respond with a resource");
+    console.log(req.userContext.userinfo);
+    res.render("users/index", {
+      loggedIn: true,
+      title: "Express",
+      user: req.userContext.userinfo,
+    });
   });
 
   return router;

@@ -2,9 +2,24 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='css/bootstrap.min.css')
-    script(language='javascript', src='js/bootstrap.min.js')
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    link(rel='stylesheet' href='css/bootstrap.min.css')
+    script(language='javascript' src='js/bootstrap.min.js')
 
   body
-    block content
+    .container
+      header.d-flex.flex-wrap.justify-content-center.py-3.mb-4.border-bottom
+        h5.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.text-dark.text-decoration-none 
+          a(href="/") Home
+        ul.nav.nav-pills
+          if loggedIn
+            li.nav-item 
+              a(href="users").nav-link Profile
+          li.nav-item
+            if loggedIn
+              form(action="logout" method="post")
+                button(type="submit").nav-link.active Logout
+            else 
+              a(href="Users").nav-link.active Login
+
+      block content

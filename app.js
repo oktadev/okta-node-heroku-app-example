@@ -30,7 +30,6 @@ const oidc = new ExpressOIDC({
   appBaseUrl: process.env.APP_BASEURL,
   redirect_uri: `${process.env.APP_BASEURL}/authorization-code/callback`,
   scope: "openid profile",
-  appBaseUrl: process.env.APP_BASEURL,
 });
 
 // ExpressOIDC attaches handlers for the /login and /authorization-code/callback routes
