@@ -65,29 +65,17 @@ npm start
 
 ### Publish to Heroku
 
-Push the code to your GitHub repository.  
+Push the code to your GitHub repository.  Navigate to your [Heroku dashboard](https://dashboard.heroku.com/apps). Click on **New** and then **Create new app**. Give you app a distinct name and then click **Create app**. In the app page, under *Deploy*, select *Deployment Method* **GitHub**. 
 
-Navigate to your [Heroku dashboard](https://dashboard.heroku.com/apps).
-
-Click on **New** and then **Create new app**
-
-Give you app a distinct name and then click **Create app**
-
-In the app page, under *Deploy*, select *Deployment Method* **GitHub**
-
-Connect your GitHub account to Heroku.
-
-Click **Enable Automatic Deploys**
-
-Click **Deploy Branch** under *Manual Deploy* for your first time deploy
-
-Under the *Settings* tab, find the *Domains* section.  Make note of your domain.  
+Connect your GitHub account to Heroku. Click **Enable Automatic Deploys**. Click **Deploy Branch** under *Manual Deploy* for your first time deploy. Under the *Settings* tab, find the *Domains* section.  Make note of your domain.  
 
 Under *Config Vars* click **Reveal Config Vars** and add the values for `APP_BASEURL`, which will be the URL you just noted.  
 
+```bash
 `OKTA_OAUTH2_CLIENT_ID` = {yourClientId}
 `OKTA_OAUTH2_CLIENT_SECRET` = {yourClientSecret}
 `OKTA_OAUTH2_ISSUER` = {yourOktaDomain}/oauth2/default
+```
 
 ### Finish Okta Setup
 
