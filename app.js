@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config({ path: '.okta.env' })
 
 var createError = require("http-errors");
 var express = require("express");
@@ -23,12 +23,14 @@ app.use(
   })
 );
 
+const { OKTA_OAUTH2_ISSUER, OKTA_OAUTH2_CLIENT_ID, OKTA_OAUTH2_CLIENT_SECRET, APP_BASEURL } = process.env;
+
 const oidc = new ExpressOIDC({
-  issuer: process.env.OKTA_OAUTH2_ISSUER,
-  client_id: process.env.OKTA_OAUTH2_CLIENT_ID,
-  client_secret: process.env.OKTA_OAUTH2_CLIENT_SECRET,
-  appBaseUrl: process.env.APP_BASEURL,
-  redirect_uri: `${process.env.APP_BASEURL}/authorization-code/callback`,
+  issuer: OKTA_OAUTH2_ISSUER,
+  client_id: OKTA_OAUTH2_CLIENT_ID,
+  client_secret: OKTA_OAUTH2_CLIENT_SECRET,
+  appBaseUrl: APP_BASEURL,
+  redirect_uri: `${APP_BASEURL}/authorization-code/callback`,
   scope: "openid profile",
 });
 
